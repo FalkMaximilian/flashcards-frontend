@@ -1,0 +1,39 @@
+<span class="text-5xl font-bold font-sans mb-3">Sets</span>
+
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-4">
+    <app-set-list-element *ngFor="let result of results" [result]="result"></app-set-list-element>
+</div>
+<!--
+<table class="sm:table-xs md:table-lg mb-4">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Number Of Cards</th>
+            <th>Last Edited/Viewed</th>
+            <th>Tags</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let result of results">
+            <th>{{ result.gender }}</th>
+            <td>{{ result.name.first }} {{ result.name.last }}</td>
+            <td>{{ result.dob.date}}</td>
+            <td>{{ result.email }}</td>
+        </tr>
+    </tbody>
+</table>
+-->
+
+
+<div class="flex justify-between items-end mt-auto">
+    <select class="select select-bordered border-2 border-base-300 max-w-xs" [(ngModel)]="pageSize" (ngModelChange)="onInputChange($event)">
+        <option *ngFor="let option of options" [value]="option">{{option}}</option>
+    </select>
+    <div class="join">
+        <button class="join-item btn btn-md">1</button>
+        <button class="join-item btn btn-md btn-active">2</button>
+        <button class="join-item btn btn-md">3</button>
+        <button class="join-item btn btn-md">4</button>
+    </div>
+</div>

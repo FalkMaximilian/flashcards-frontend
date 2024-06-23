@@ -1,0 +1,20 @@
+<div class="w-full h-full  absolute inset-0" >
+    <div class="stack w-full h-full">
+        <div class="w-full h-full flashcard" [class.flipped]="isFlipped">
+            <div class="absolute inset-0 bg-base-100 rounded-box p-5 overflow-y-scroll front shadow-md"
+                (click)="toggleFlip()">
+                <p class="break-all text-lg font-semibold text-center min-h-full flex items-center justify-center">Chipi
+                    Chipi</p>
+            </div>
+            <div class="absolute inset-0 bg-base-100 rounded-box p-5 overflow-y-scroll back shadow-md"
+                (click)="toggleFlip()">
+                <p class="break-all text-lg font-semibold text-center min-h-full flex items-center justify-center">
+                    Chapa Chapa</p>
+            </div>
+        </div>
+        <div class="w-full h-full bg-base-100 rounded-box shadow-md">
+        </div>
+        <div class="w-full h-full bg-base-100 rounded-box shadow-md">
+        </div>
+    </div>
+</div>

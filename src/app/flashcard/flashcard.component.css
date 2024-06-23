@@ -1,0 +1,16 @@
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flashcard .front, .flashcard .back {
+    backface-visibility: hidden;
+}
+
+.flashcard .back {
+    transform: rotateY(180deg);
+}

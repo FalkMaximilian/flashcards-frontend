@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'my-daisy-ui' title`, () => {
+  it(`should have the 'flashcards' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('my-daisy-ui');
+    expect(app.title).toEqual('flashcards');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, my-daisy-ui');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, flashcards');
   });
 });
