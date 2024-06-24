@@ -10,6 +10,7 @@ module.exports = {
       },
       maxWidth: {
         'card-lg': '800px',
+        'set-card': '550px',
       },
       maxHeight: {
         'card-lg': '500px',

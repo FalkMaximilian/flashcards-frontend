@@ -1,33 +1,42 @@
-<span class="text-5xl font-bold font-sans mb-3">Sets</span>
-
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-4">
-    <app-set-list-element *ngFor="let result of results" [result]="result"></app-set-list-element>
+<div class="flex w-full justify-between items-center mb-2">
+    <span class="text-3xl font-bold font-sans">Sets</span>
+    <button class="btn btn-circle btn-primary" onclick="new_set_modal.showModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-lg"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+        </svg>
+    </button>
+    <dialog id="new_set_modal" class="modal">
+        <div class="modal-box">
+            <h3 class="text-2xl font-bold pb-4">New Set</h3>
+            <form (ngSubmit)="submitNewSet()">
+                <input type="text" placeholder="Enter a name for your new set" class="input input-bordered w-full max-w-xs"
+                    [formControl]="setName" />
+                <div class="modal-action">
+                    <button type="button" class="btn px-2" onclick="new_set_modal.close()">Cancel</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="setName.invalid" onclick="new_set_modal.close()">Create</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
 </div>
-<!--
-<table class="sm:table-xs md:table-lg mb-4">
-    <thead>
-        <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Number Of Cards</th>
-            <th>Last Edited/Viewed</th>
-            <th>Tags</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let result of results">
-            <th>{{ result.gender }}</th>
-            <td>{{ result.name.first }} {{ result.name.last }}</td>
-            <td>{{ result.dob.date}}</td>
-            <td>{{ result.email }}</td>
-        </tr>
-    </tbody>
-</table>
--->
+
+<ng-container *ngIf="!sets || sets.length == 0; else setList">
+    <h1>No sets</h1>
+</ng-container>
+
+<ng-template #setList>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 mb-8">
+    
+    <app-set-list-element *ngFor="let set of sets" [set]="set"></app-set-list-element>
+</div>
+</ng-template>
 
 
-<div class="flex justify-between items-end mt-auto">
-    <select class="select select-bordered border-2 border-base-300 max-w-xs" [(ngModel)]="pageSize" (ngModelChange)="onInputChange($event)">
+<div class="flex justify-between items-end mt-auto pb-10">
+    <select class="select select-bordered border-2 border-base-300 max-w-xs" [(ngModel)]="pageSize"
+        (ngModelChange)="onInputChange($event)">
         <option *ngFor="let option of options" [value]="option">{{option}}</option>
     </select>
     <div class="join">

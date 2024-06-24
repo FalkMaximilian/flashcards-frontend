@@ -1,5 +1,0 @@
-.aspect-ratio-625::before {
-    display: block;
-    content: "";
-    padding-top: 62.5%;
-}

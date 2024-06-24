@@ -7,7 +7,7 @@
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/favicon.ico",
+          "/assets/icons/flashcards-app-icon-32.png",
           "/index.html",
           "/manifest.webmanifest",
           "/*.css",

@@ -14,11 +14,12 @@ import {
 } from '../password.validator';
 import { NgClass, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
+import { ThemeSwitcherComponent } from '../theme-switcher/theme-switcher.component';
 
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, NgClass],
+  imports: [ReactiveFormsModule, NgIf, NgClass, ThemeSwitcherComponent],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.css',
 })
