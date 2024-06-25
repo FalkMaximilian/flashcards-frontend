@@ -9,13 +9,16 @@
     </button>
     <dialog id="new_set_modal" class="modal">
         <div class="modal-box">
-            <h3 class="text-2xl font-bold pb-4">New Set</h3>
-            <form (ngSubmit)="submitNewSet()">
-                <input type="text" placeholder="Enter a name for your new set" class="input input-bordered w-full max-w-xs"
-                    [formControl]="setName" />
+            <div class="text-2xl font-bold mb-6">
+                Create Set
+            </div>
+            <form (ngSubmit)="submitNewSet()" class="flex flex-col justify-center">
+                <input type="text" placeholder="Enter a name for your new set"
+                    class="input input-bordered" [formControl]="setName" />
                 <div class="modal-action">
                     <button type="button" class="btn px-2" onclick="new_set_modal.close()">Cancel</button>
-                    <button type="submit" class="btn btn-primary" [disabled]="setName.invalid" onclick="new_set_modal.close()">Create</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="setName.invalid"
+                        onclick="new_set_modal.close()">Create</button>
                 </div>
             </form>
         </div>
@@ -23,18 +26,17 @@
 </div>
 
 <ng-container *ngIf="!sets || sets.length == 0; else setList">
-    <h1>No sets</h1>
+    
 </ng-container>
 
 <ng-template #setList>
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 mb-8">
-    
-    <app-set-list-element *ngFor="let set of sets" [set]="set"></app-set-list-element>
-</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 mb-8">
+        <app-set-list-element *ngFor="let set of sets" [set]="set"></app-set-list-element>
+    </div>
 </ng-template>
 
 
-<div class="flex justify-between items-end mt-auto pb-10">
+<div class="flex justify-between items-end mt-auto pb-10 md:p-0">
     <select class="select select-bordered border-2 border-base-300 max-w-xs" [(ngModel)]="pageSize"
         (ngModelChange)="onInputChange($event)">
         <option *ngFor="let option of options" [value]="option">{{option}}</option>

@@ -21,7 +21,7 @@ export interface ApiResponse {
   styleUrl: './sets-list.component.css'
 })
 export class SetsListComponent implements OnInit {
-  @HostBinding('class') classes = 'w-full p-4 md:p-6';
+  @HostBinding('class') classes = 'w-full p-4 md:p-6 flex flex-col';
 
 
   options = [10, 20, 30];
